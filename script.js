@@ -5,7 +5,7 @@ let isPlaying = false;
 let autoPlay='repeat-all'
 let shuffle=false;
 async function getSongs() {
-  let a = await fetch("https://github.com/devansh0627/beatblaze/tree/main/songs");
+  let a = await fetch("/songs/");
   let response = await a.text();
   console.log(response);
   let div = document.createElement("div");
@@ -36,7 +36,7 @@ function secondsToMinutesSeconds(seconds) {
   return `${formattedMinutes}:${formattedSeconds}`;
 }
 const playMusic = (track) => {
-  currentSong.src = "https://github.com/devansh0627/beatblaze/tree/main/songs" + track + ".mp3";
+  currentSong.src = "/songs/" + track + ".mp3";
   console.log(currentSong.src);
   currentSong.play();
   if(defaultVolumeCounter==false){
